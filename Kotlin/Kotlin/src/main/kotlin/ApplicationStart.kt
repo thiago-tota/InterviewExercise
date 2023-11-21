@@ -1,34 +1,24 @@
-import java.util.*
+class ApplicationStart(private val console: Console = IntelliJTerminal()) {
 
-object ApplicationStart {
     fun execute() {
-        val scanner = Scanner(System.`in`)
         while (true) {
-            try {
-                println(getMenuText())
-                println("Type your message:")
-                val inputMsg = scanner.nextLine()
-                if (inputMsg == "Q") {
-                    break
-                }
-                postMessage(inputMsg)
-            } catch (e: Exception) {
-                println(e.message)
+            console.print(getMenuText())
+
+            val inputMsg = getMessageFromUser()
+            if (inputMsg == "Q") {
+                break
             }
+
+            postMessage(inputMsg)
         }
     }
 
-    private fun getMenuText(): String {
-        val sb = StringBuilder()
+    private fun getMenuText() =
+        StringBuilder().appendLine("").appendLine("Welcome!").appendLine("Q to exit the application;").toString()
 
-        sb.appendLine("")
-        sb.appendLine("Welcome!")
-        sb.appendLine("Q to exit the application;")
+    private fun getMessageFromUser() = console.read("Type your message:")
 
-        return sb.toString()
-    }
-
-    private fun postMessage(message: String){
-        println("My first post: $message")
+    private fun postMessage(message: String) {
+        console.print(message)
     }
 }
