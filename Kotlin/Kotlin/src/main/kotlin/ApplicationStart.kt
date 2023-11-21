@@ -5,7 +5,7 @@ class ApplicationStart(private val console: Console = IntelliJTerminal()) {
             console.print(getMenuText())
 
             val inputMsg = getMessageFromUser()
-            if (inputMsg == "Q") {
+            if (inputMsg.equals("Q", ignoreCase = true)) {
                 break
             }
 
