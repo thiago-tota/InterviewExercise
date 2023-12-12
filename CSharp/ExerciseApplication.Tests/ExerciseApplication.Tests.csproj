@@ -24,7 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\CSharp\ExerciseApplication.csproj" />
+	  <ProjectReference Include="..\ExerciseApplication\ExerciseApplication.csproj" />
 	</ItemGroup>
 
 </Project>
